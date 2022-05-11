@@ -12,14 +12,11 @@ Restaurant.destroy_all
 
 puts "Creating restaurants..."
 5.times do
-  Restaurant.create([{name: Faker::Restaurant.name,
-                      address: Faker::Address.street_address,
-                      phone_number: Faker::PhoneNumber.phone_number,
-                      category: ["chinese", "italian", "japanese", "french", "belgian"].sample }])
-end
-
-[ dishoom, pizza_east ].each do |attributes|
-  restaurant = Restaurant.create!(attributes)
+  restaurant = Restaurant.create(
+    name: Faker::Restaurant.name,
+    address: Faker::Address.street_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    category: ["chinese", "italian", "japanese", "french", "belgian"].sample)
   puts "Created #{restaurant.name}"
 end
 puts "Finished!"
